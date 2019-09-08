@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BeyServ - {% block title %}{% endblock %}</title>
+    <!-- CSS -->
+    <link rel="icon" type="image/png" href="../{{assets}}/img/logo.png" />
+    <link rel='stylesheet' type='text/css' media='screen' href='../{{assets}}/css/style.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="../{{assets}}/js/main.js"></script>
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+    <!-- META -->
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- META OG -->
+    <meta property="og:title" content="BeyServ - {{ block('title') }}" />
+    <meta property="og:description" content="Serveur mini-jeux rush" />
+    <meta property="og:image" content="{{ assets }}/img/logo.png" />
+</head>
+<body>
+
+    <header>
+        <div class="top-header">
+            <h1>&nbsp;</h1>
+            <p id="ip_serv" class="left">bzz.beyserv.net</p>
+            <p class="right"><a href="/inscription">WHITELIST</a></p>
+        </div>
+        <div class="top-nav">
+                <span class="responsive_bottom"><i class="fas fa-bars"></i></span>
+                <ul class="menu">
+                    <li><a href="/"><img src="../{{assets}}/img/home.png" width="25" height="25"> Accueil</a></li>
+                    <li><a href="/jeux"><img src="../{{assets}}/img/stats.png" width="25" height="25"> Jeux</a></li>
+                    <li><a href="/stats"><img src="../{{assets}}/img/games.png" width="25" height="25"> Statistiques</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdlaS7gTZdiYvED4VOVXty5-jhq4KBeXPF2Ad4qFK66RLsMeQ/viewform"><img src="../{{assets}}/img/rc.png" width="25" height="25"> Recrutement</a></li>
+                    <li><a href="http://boutique.beyserv.net/"><img src="../{{assets}}/img/store.png" width="25" height="25"> Boutique</a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="responsive_nav">
+            <ul class="responsive_menu">
+                <li><a href="/"><img src="../{{assets}}/img/home.png" width="25" height="25"> Accueil</a></li>
+                <li><a href="/jeux"><img src="../{{assets}}/img/stats.png" width="25" height="25"> Jeux</a></li>
+                <li><a href="/stats"><img src="../{{assets}}/img/games.png" width="25" height="25"> Statistiques</a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdlaS7gTZdiYvED4VOVXty5-jhq4KBeXPF2Ad4qFK66RLsMeQ/viewform"><img src="../{{assets}}/img/rc.png" width="25" height="25"> Recrutement</a></li>
+                <li><a href="http://boutique.beyserv.net/"><img src="../{{assets}}/img/store.png" width="25" height="25"> Boutique</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="top">
+            <div class="wrapper">
+                <img class="logo" src="../{{assets}}/img/logo.png" />
+                <p>BeyServ est un serveur mini-jeux basé sur le rush. Ce serveur n'est pas affilié à <a href="https://www.minecraft.net/fr-fr/">Mojang</a></p>
+                <div class="right">
+                    <div class="left">
+                        <p class="title">Liens utiles</p>
+                        <ul>
+                            <a href="/cgv"><li>Conditions générales d'utilisation</li></a>
+                            <a href="/mentions_legales"><li>Mentions légales</li></a>
+                        </ul>
+                    </div>
+                    <div class="other_left">
+                        <p class="title">Autres</p>
+                        <ul>
+                            <a href="https://twitter.com/BeyServMC"><li class="twitter"><i class="fab fa-twitter"></i></li></a>
+                            <a href="https://discord.gg/yRbNbFv"><li class="discord"><i class="fab fa-discord"></i></li></a>
+                            <a href="https://servmc.net/"><li class="servmc"><img width="44" height="44" src="../{{assets}}/img/logoservmc.png"></li></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Copyright &copy; 2019 BeyServ - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="../{{assets}}/js/responsive_nav.js"></script>
+    <script src="../{{assets}}/js/cookies.js"></script>
+    
+</body>
+</html>

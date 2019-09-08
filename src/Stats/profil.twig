@@ -1,0 +1,174 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}profil{% endblock %}
+{% block content %}
+
+    {% for infos in player %}
+
+        <div class="profil_background">
+            <div class="profil_wrapper">
+                <div class="profil_infos">
+                    <img class="profil_img" src="https://minotar.net/helm/{{infos.pseudo}}/300.png" />
+                    <span class="profil_name">
+                        <span>{{infos.prefix|raw}}
+                            {{infos.pseudo}}
+                        {% set suffix = infos.suffix|split(',') %}
+                        {% if 1 in suffix %}
+                            <span data-tippy-content="Première musique sur la chaîne de Nabey" id="pin" class="music_pin"><i class="fas fa-music"></i></span>
+                        {% endif %}
+                        {% if 2 in suffix %}
+                            <span data-tippy-content="1 an du serveur" id="pin" class="check_pin"><i class="fas fa-check"></i></span>
+                        {% endif %}
+                        {% if 3 in suffix %}
+                            <span data-tippy-content="Noël 2018" id="pin" class="snowflake_pin"><i class="fas fa-snowflake"></i></span>
+                        {% endif %}
+                        {% if infos.server == "offline" %}
+                                <span class="offline"><i data-tippy-content="Déconnecté" class="fas fa-circle"></i></span>
+                        {% else %}<span class="online"><i data-tippy-content="Connecté" class="fas fa-circle"></i></span></span>{% endif %}
+                    </span>
+                    <div class="profil_infos_subdiv">
+                        <span class="profil_inscription">Inscrit le {{infos.register|date("d/m/Y à H:m")}}</span> </br>
+                        {% set total_time = infos.time / 60 %}
+                        <span class="profil_inscription">{% if total_time|round <= 1 %}Temps de jeu: {{total_time|round}} heure{% else %}Temps de jeu: {{total_time|round}} heures{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+
+            {% for infos in ban %}
+                {% if infos.date_fin > 'now'|date('U') * 1000 %}
+                    <div class="ban_divs">
+                        <div class="ban_div">
+                            {% set fin = infos.date_fin / 1000 %}
+                            <p class="ban_title">Ce joueur est banni pour {{ infos.raison }}</p>
+                            <p class="ban_sanction">Sa sanction prend fin le {{ fin|round|date('d/m/Y à H:m') }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="profils_other_div">
+            <div class="profil_games">
+
+                {% for infos in beyrush %}
+                    <div class="profil_game_div">
+                        <h1>BeyRush</h1>
+                        <div class="profil_bc_beyrush"></div>
+                        <div class="profil_game_score">
+                            <p class="profil_game_score_color_one">Partie jouée(s) <span class="profil_game_score_score">{{infos.jouer}}</span></p>
+                            <p class="profil_game_score_color_two">Victoires <span class="profil_game_score_score">{{infos.victoires}}</span></p>
+                            <p class="profil_game_score_color_one">Défaites <span class="profil_game_score_score">{{infos.defaites}}</span></p>
+                            <p class="profil_game_score_color_two">Kills <span class="profil_game_score_score">{{infos.kills}}</span></p>
+                            <p class="profil_game_score_color_one last">Morts <span class="profil_game_score_score">{{infos.morts}}</span></p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for infos in honeyrush %}
+                    <div class="profil_game_div">
+                        <h1>HoneyRush</h1>
+                        <div class="profil_bc_honeyrush"></div>
+                        <div class="profil_game_score">
+                            <p class="profil_game_score_color_one">Partie jouée(s)
+                                <span class="profil_game_score_score">{{infos.jouer}}</span>
+                            </p>
+                            <p class="profil_game_score_color_two">Victoires
+                                <span class="profil_game_score_score">{{infos.victoires}}</span>
+                            </p>
+                            <p class="profil_game_score_color_one">Défaites
+                                <span class="profil_game_score_score">{{infos.defaites}}</span>
+                            </p>
+                            <p class="profil_game_score_color_two">Kills
+                                <span class="profil_game_score_score">{{infos.kills}}</span>
+                            </p>
+                            <p class="profil_game_score_color_one">Morts
+                                <span class="profil_game_score_score">{{infos.morts}}</span>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for infos in rushtheflag %}
+                    <div class="profil_game_div">
+                        <h1>RushTheFlag</h1>
+                        <div class="profil_bc_rushtheflag"></div>
+                        <div class="profil_game_score">
+                            <p class="profil_game_score_color_one">Partie jouée(s)
+                                <span class="profil_game_score_score">{{infos.jouer}}</span>
+                            </p>
+                            <p class="profil_game_score_color_two">Victoires
+                                <span class="profil_game_score_score">{{infos.victoires}}</span>
+                            </p>
+                            <p class="profil_game_score_color_one">Défaites
+                                <span class="profil_game_score_score">{{infos.defaites}}</span>
+                            </p>
+                            <p class="profil_game_score_color_two">Kills
+                                <span class="profil_game_score_score">{{infos.kills}}</span>
+                            </p>
+                            <p class="profil_game_score_color_one last">Morts
+                                <span class="profil_game_score_score">{{infos.morts}}</span>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for infos in flowerrush %}
+                    <div class="profil_game_div">
+                        <h1>Flowers Rush</h1>
+                        <div class="profil_bc_flowerrush"></div>
+                        <div class="profil_game_score">
+                            <p class="profil_game_score_color_one">Partie jouée(s)
+                                <span class="profil_game_score_score">{{infos.jouer}}</span>
+                            </p>
+                            <p class="profil_game_score_color_two">Victoires
+                                <span class="profil_game_score_score">{{infos.victoires}}</span>
+                            </p>
+                            <p class="profil_game_score_color_one">Défaites
+                                <span class="profil_game_score_score">{{infos.defaites}}</span>
+                            </p>
+                            <p class="profil_game_score_color_two">Kills
+                                <span class="profil_game_score_score">{{infos.kills}}</span>
+                            </p>
+                            <p class="profil_game_score_color_one last">Morts
+                                <span class="profil_game_score_score">{{infos.morts}}</span>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for infos in brainffa %}
+                    <div class="profil_game_div">
+                        <h1>BrainFFA</h1>
+                        <div class="profil_bc_brainffa"></div>
+                        <div class="profil_game_score">
+                            <p class="profil_game_score_color_one">Kills <span class="profil_game_score_score">{{infos.kills}}</span></p>
+                            <p class="profil_game_score_color_two last">Morts <span class="profil_game_score_score">{{infos.morts}}</span></p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for infos in ffarush %}
+                    <div class="profil_game_div">
+                        <h1>FFARush</h1>
+                        <div class="profil_bc_ffarush"></div>
+                        <div class="profil_game_score">
+                            <p class="profil_game_score_color_one">Kills
+                                <span class="profil_game_score_score">{{infos.kills}}</span>
+                            </p>
+                            <p class="profil_game_score_color_two last">Morts
+                                <span class="profil_game_score_score">{{infos.morts}}</span>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+                {% if beyrush|length == 0 and honeyrush|length == 0 and rushtheflag|length == 0 and brainffa|length == 0 and ffarush|length == 0 %}
+                    <p class="no_played">Ce joueur n'a joué à aucun jeu.</p>
+                {% endif %}
+
+            </div>
+        </div>
+
+    {% else %}
+        <script type="text/javascript">
+            window.location.replace('../404.twig');
+        </script>
+    {% endfor %}
+
+    <script src="../{{assets}}/js/stats/tooltip.js"></script>
+
+{% endblock %}

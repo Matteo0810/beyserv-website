@@ -1,0 +1,29 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}Admin (Panel à améliorer soon){% endblock %}
+{% block content %}
+
+    {% if password == null %}
+        <div class="form_admin">
+            <input class="password_admin" type="password" placeholder="Entrez le mot de passe" />
+            <input class="submit_admin" type="submit" value="Valider" /> </br>
+        </div>
+    {% else %}
+
+        <div class="div_edit_article_admin">
+            <h1 class="create_article_title">Créer un article:</h1>
+            <input id="title_article" class="input_text" placeholder="Entrez un nom d'article" /> </br>
+            <input id="name_article" class="input_text" placeholder="Entrez votre nom" /> </br>
+            <div class="subdiv_postuler_form_deux">
+                <label for="file" class="file_label"><i class="fas fa-file-download"></i> Image de l'article (fait pas le rat pour les images met pas des trop lourde :( )</label>
+                <input type="file" id="file" name="file"> </br>
+            </div>
+            <div id="summernote"></div> </br>
+            <input type="submit" class="input_submit" value="Créer" /> </br>
+        </div>
+
+    {% endif %}
+
+    <script src="{{assets}}/js/admin/password.js"></script>
+    <script src="{{assets}}/js/admin/create_article.js"></script>
+
+{% endblock %}

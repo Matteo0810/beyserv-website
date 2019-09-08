@@ -1,0 +1,13 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}Page introuvable{% endblock %}
+{% block content %}
+
+    <div class="bg_error">
+        <h1 class="error_title">
+            <img class="abeille_float" src="../{{assets}}/img/abeille.png" /> Erreur 404 <img class="abeille_float" src="../{{assets}}/img/abeille.png" />
+            <p class="error_desc">Bizarre cette page existait pourtant avant...</p>
+            <button class="error_back_to_home"><a href="/">Retour à l'accueil</button></a>
+        </h1>
+    </div>
+
+{% endblock %}

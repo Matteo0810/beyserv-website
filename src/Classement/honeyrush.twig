@@ -1,0 +1,49 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}HoneyRush{% endblock %}
+{% block content %}
+
+    <div class="classement_div">
+        <p class="classement_title"><a href="/jeux">Classement</a> > <span class="color">HoneyRush</span></p>
+
+        <div class="classement_divsdivs">
+            <div class="classement_topdiv">
+                {% for player in classement %}
+                    {% if loop.index == 1 %}<a href="/profil/{{player.pseudo}}"><img data-tippy-content="{{player.pseudo}} </br> Victoires: {{player.victoires}} </br> Défaites: {{player.defaites}} </br> Kills: {{player.kills}} </br> Morts: {{player.morts}}" class="classement_head_top_first" src="https://minotar.net/helm/{{player.pseudo}}/300.png" alt="first" /></a>{% endif %}
+                    {% if loop.index == 2 %}<a href="/profil/{{player.pseudo}}"><img data-tippy-content="{{player.pseudo}} </br> Victoires: {{player.victoires}} </br> Défaites: {{player.defaites}} </br> Kills: {{player.kills}} </br> Morts: {{player.morts}}" class="classement_head_top_two" src="https://minotar.net/helm/{{player.pseudo}}/300.png" alt="two" /></a>{% endif %}
+                    {% if loop.index == 3 %}<a href="/profil/{{player.pseudo}}"><img data-tippy-content="{{player.pseudo}} </br> Victoires: {{player.victoires}} </br> Défaites: {{player.defaites}} </br> Kills: {{player.kills}} </br> Morts: {{player.morts}}" class="classement_head_top_tree" src="https://minotar.net/helm/{{player.pseudo}}/300.png" alt="tree" /></a>{% endif %}
+                {% endfor %}
+                <div class="classement_img_podium"></div>
+                <div class="second_classement_podium"></div>
+                <div class="top_classement_podium"></div>
+                <div class="third_classement_podium"></div>
+            </div>
+
+            <div class="classement_other_div">
+                <ul class="classemnt_infos double">
+                    <li>Victoires</li>
+                    <li>Défaites</li>
+                    <li>Kills</li>
+                    <li>Morts</li>
+                </ul>
+                <div class="classment_divs">
+                    {% for player in classement|slice(3,7) %}
+                        <div class="classement_player_div">
+                            <span class="number_span">{{loop.index + 3}}</span>
+                            <a href="/profil/{{player.pseudo}}"><span class="player_name">{{player.pseudo}}</span></a>
+                            <ul class="classement_ul">
+                                <li class="classement_li">{{player.victoires}}</li>
+                                <li class="classement_li">{{player.defaites}}</li>
+                                <li class="classement_li">{{player.kills}}</li>
+                                <li class="classement_li">{{player.morts}}</li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../{{assets}}/js/stats/tooltip.js"></script>
+
+{% endblock %}

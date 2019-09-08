@@ -1,0 +1,62 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}Nos jeux{% endblock %}
+{% block content %}
+
+    <div class="game_bc">
+
+        <div class="games_title_div"><p class="game_title">Nos jeux</p></div>
+
+        <div class="games_div">
+            <div id="beyrush" class="game_div game_div_active">
+                <span class="game_title">BeyRush</span>
+                <div class="game_img" style="background: url('{{assets}}/img/games/beyrush1.png')"></div>
+            </div>
+            <div id="brainffa" class="game_div">
+                <span class="game_title">BrainFFA</span>
+                <div class="game_img" style="background: url('{{assets}}/img/games/brainffa.png')"></div>
+            </div>
+            <div id="honeyrush" class="game_div">
+                <span class="game_title">HoneyRush</span>
+                <div class="game_img" style="background: url('{{assets}}/img/games/honeyrush.png')"></div>
+            </div>
+            <div id="ffarush" class="game_div">
+                <span class="game_title">FFARush</span>
+                <div class="game_img" style="background: url('{{assets}}/img/games/ffarush.png')"></div>
+            </div>
+            <div id="rushtheflag" class="game_div">
+                <span class="game_title">RushTheFlag</span>
+                <div class="game_img" style="background: url('{{assets}}/img/games/rushtheflag.png')"></div>
+            </div>
+            <div id="flowerrush" class="game_div">
+                <span class="game_title">Flower Rush</span>
+                <div class="game_img" style="background: url('{{assets}}/img/games/flowerrush.png')"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="game_presentation_bc">
+
+        <div class="presentation_game">
+            <div id="beyrush_bg" class="presentation_img_back" style="background: url({{assets}}/img/games/beyrush1.png);"></div>
+            <div id="brainffa_bg" class="presentation_img_back" style="background: url({{assets}}/img/games/brainffa.png);"></div>
+            <div id="honeyrush_bg" class="presentation_img_back" style="background: url({{assets}}/img/games/honeyrush.png);"></div>
+            <div id="ffarush_bg" class="presentation_img_back" style="background: url({{assets}}/img/games/ffarush.png);"></div>
+            <div id="rushtheflag_bg" class="presentation_img_back" style="background: url({{assets}}/img/games/rushtheflag.png);"></div>
+            <div id="flowerrush_bg" class="presentation_img_back" style="background: url({{assets}}/img/games/flowerrush.png);"></div>
+            <div class="presentation_infos">
+                <div class="present_title_div">
+                    <span class="present_title">BeyRush</span>
+                </div>
+                <div class="presentation_desc_mini_jeux">
+                    Battez-vous entres équipes pour éradiquer les deux cœurs de la ruche ennemie puis éliminez toutes les abeilles une par une !
+                </div>
+                <a class="presentation_minigame_a" href="/classement/BeyRush"><button class="presentation_button_classement"><i class="far fa-play-circle"></i> Regarder le classement</button></a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{assets}}/js/games.js"></script>
+
+{% endblock %}

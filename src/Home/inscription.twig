@@ -1,0 +1,17 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}Inscription{% endblock %}
+{% block content %}
+
+    <div class="register_div">
+
+        <p class="register_title">Connection</p>
+        <input class="register_input" placeholder="Entrez votre pseudo en jeu" />
+        <div class="g-recaptcha" data-sitekey="6LfUgWcUAAAAAFF-YSe8AAkXHCF6MwaYIS-0uqVx"></div>
+        </br><input type="submit" class="register_submit" value="Inscription" /> </br>
+
+    </div>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="{{assets}}/js/inscription.js"></script>
+
+{% endblock %}

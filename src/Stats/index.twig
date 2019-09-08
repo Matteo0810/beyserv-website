@@ -1,0 +1,150 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}Stats{% endblock %}
+{% block content %}
+
+    <div class="content">
+        <section class="card">
+            <div class="card-header">Statistiques</div>
+            <div class="search_bar_div">
+                <input type="text" class="input_search_player" placeholder="Rechercher un joueur" id="autocomplete">
+                <button type="submit" class="input_search_player_submit"><i class="fa fa-search"></i></button>
+            </div>
+            <canvas id="chart" width="400" height="400"></canvas>
+        </section>
+        <section class="cardright">
+            <div class="card-header2">Staff</div>
+            <div class="card_staff">
+                <div class="card_staff_admin">
+                    <a href="/profil/Saynni">
+                        <div class="card_staff_admin_only">
+                            <img src="https://minotar.net/helm/Saynni/300.png" />
+                            <span class="top">Administrateur</span> </br>
+                            <span class="bottom">Développeur</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="card_staff_admin">
+                    <a href="/profil/NabeyIsBack">
+                        <div class="card_staff_admin_only">
+                            <img src="https://minotar.net/helm/NabeyIsBack/300.png" />
+                            <span class="top">Administrateur</span> </br>
+                            <span class="bottom">Communication</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title responsable"></h1>
+                    <div class="card_staff_subdiv" id="responsable">
+                        {% for staff in staffs %}
+                            {%  if '§0§4Responsable' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title modoplus"></h1>
+                    <div class="card_staff_subdiv" id="modoplus">
+                        {% for staff in staffs %}
+                            {%  if '§1§5Modérateur' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title modo"></h1>
+                    <div class="card_staff_subdiv" id="modo">
+                        {% for staff in staffs %}
+                            {%  if '§1§9Modérateur' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title assistant"></h1>
+                    <div class="card_staff_subdiv" id="assistant">
+                        {% for staff in staffs %}
+                            {%  if '§2§bAssistant' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title architecte"></h1>
+                    <div class="card_staff_subdiv" id="architecte">
+                        {% for staff in staffs %}
+                            {%  if '§3§2Architecte' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title developper"></h1>
+                    <div class="card_staff_subdiv" id="developper">
+                        {% for staff in staffs %}
+                            {%  if '§3§2Développeur' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title graphiste"></h1>
+                    <div class="card_staff_subdiv" id="graphiste">
+                        {% for staff in staffs %}
+                            {%  if '§3§2Graphiste' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card_staff_modoplus">
+                    <h1 class="card_staff_title youtubeyy"></h1>
+                    <div class="card_staff_subdiv" id="youtubeyy">
+                        {% for staff in staffs %}
+                            {%  if '§0§cYoutubey' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                        {% for staff in staffs %}
+                            {%  if '§4§6Youtubey' in staff.prefix %}
+                                <a href="/profil/{{staff.pseudo}}">
+                                    <img data-tippy-content="{{staff.pseudo}}" class="card_staff_img" src="https://minotar.net/helm/{{staff.pseudo}}/300.png" />
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <input id="charts" value="{% for info in chart %}{{ info.number }}{% if loop.index %},{% endif %}{% endfor %}" hidden />
+
+    <script src="{{assets}}/js/stats/chart.js"></script>
+    <script src="{{assets}}/js/stats/tooltip.js"></script>
+    <script src="{{assets}}/js/stats/staff_counter.js"></script>
+    <script src="{{assets}}/js/stats/search_bar.js"></script>
+    <script src="{{assets}}/js/stats/autocomplete.js"></script>
+
+{% endblock %}

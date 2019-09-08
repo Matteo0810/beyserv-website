@@ -1,0 +1,22 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}Article{% endblock %}
+{% block content %}
+
+    {% for infos in article %}
+
+        <div class="article_background" style="background: url(../{{infos.image}});">
+            <div class="article_background_div">
+                <span class="article_info_title">{{infos.title}}</span> </br>
+                <span class="article_info_date">écrit par <a href="/profil/{{infos.author}}">{{infos.author}}</a> le {{infos.published_date|date('d/m/Y à H:m')}}</span>
+            </div>
+        </div>
+
+        <div class="article_content">
+
+            {{infos.content|raw}}
+
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

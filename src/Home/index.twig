@@ -1,0 +1,45 @@
+{% extends "Layout/layout.twig" %}
+{% block title %}Accueil{% endblock %}
+{% block content %}
+
+    <div class="Main">
+        <div class="bg"></div>
+        <div class="pageWidth">
+            <div class="block">
+                <img class="logo" src="{{assets}}/img/logo.png" alt="Logo Beyserv">
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <section class="card">
+            <div class="card-header">Qui sommes-nous ?</div>
+            <p class="card-back">Bonjour, bienvenue sur <b>BeyServ</b> </br> Un serveur mini-jeux basé sur le <b>rush</b> </br> Tout le staff vous souhaitent un agréable moment sur le serveur.</p>
+            <div class="articles">
+                {% for article in articles|slice(0, 3) %}
+                    <a href="/articles/{{article.id}}">
+                        <div class="article">
+                            <div class="article_img" style="background: url({{article.image}})"></div>
+                            <div class="article_subdiv">
+                                <span class="article_title">{{article.title}}</span> </br>
+                                <span class="article_author_date">écrit par {{article.author}} le {{article.published_date|date('d/m/Y')}}</span>
+                            </div>
+                        </div>
+                    </a>
+                {% else %}
+                    <p class="no_article">Aucun article disponible pour le moment.</p>
+                {% endfor %}
+            </div>
+        </section>
+        <section class="cardright">
+            <div class="card-header2">Statistiques</div>
+            <p class="card-back"><span id="online_player">Chargement...</span> </br> {% if inscrits <= 1 %} {{inscrits}} joueur inscrit {% else %} {{inscrits}} joueurs inscrits {% endif %}</p>
+            <div class="card-header2">Informations</div>
+            <a class="twitter-timeline" href="https://twitter.com/BeyServMC" data-widget-id="539490745749475328" data-chrome="noscrollbar nofooter" width="350px;"></a>
+	        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </section>
+    </div>
+
+    <script src="{{assets}}/js/player.js"></script>
+
+{% endblock %}
