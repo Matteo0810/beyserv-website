@@ -1,8 +1,8 @@
 <?php
 
-	define('HOST','localhost');
-	define('DB_NAME','beyserv_minecraft');
-	define('USER','root');
+	define('HOST','');
+	define('DB_NAME','');
+	define('USER','');
 	define('PASS','');
 
 	try{
